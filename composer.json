@@ -1,10 +1,16 @@
 {
-    "name": "jubstuff/no-framework",
-    "authors": [
-        {
-            "name": "Giustino Borzacchiello",
-            "email": "giustinob@gmail.com"
-        }
-    ],
-    "require": {}
+  "name": "jubstuff/no-framework",
+  "authors": [
+    {
+      "name": "Giustino Borzacchiello",
+      "email": "giustinob@gmail.com"
+    }
+  ],
+  "type": "project",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "ExampleApp\\": "src/"
+    }
+  }
 }
