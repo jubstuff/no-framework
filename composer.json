@@ -1,0 +1,10 @@
+{
+    "name": "jubstuff/no-framework",
+    "authors": [
+        {
+            "name": "Giustino Borzacchiello",
+            "email": "giustinob@gmail.com"
+        }
+    ],
+    "require": {}
+}
