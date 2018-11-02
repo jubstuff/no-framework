@@ -5,7 +5,7 @@ declare(strict_types=1);
 use DI\ContainerBuilder;
 use function DI\create;
 use function DI\get;
-use ExampleApp\HelloWorld;
+use ExampleApp\HelloWorldRoute;
 use function FastRoute\simpleDispatcher;
 use Middlewares\FastRoute;
 use Middlewares\RequestHandler;
@@ -21,8 +21,8 @@ $containerBuilder = new ContainerBuilder();
 $containerBuilder->useAutowiring(false);
 $containerBuilder->useAnnotations(false);
 $containerBuilder->addDefinitions([
-    HelloWorld::class => create(HelloWorld::class)->constructor(get('Foo'), get('Response')),
-    'Foo' => 'bar',
+    HelloWorldRoute::class => create(HelloWorldRoute::class)->constructor(get('Api'), get('Response')),
+    'Api' => 'bar',
     'Response' => function () {
         return new Response();
     }
@@ -33,7 +33,7 @@ $container = $containerBuilder->build();
 $middlewareQueue = [];
 
 $routes = simpleDispatcher(function (\FastRoute\RouteCollector $r) {
-    $r->get('/hello/{message}', HelloWorld::class);
+    $r->get('/hello/{message}', HelloWorldRoute::class);
 });
 // FastRoute determines if a request is valid and can actually be handled by the application
 $middlewareQueue[] = new FastRoute($routes);

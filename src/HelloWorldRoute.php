@@ -7,15 +7,15 @@ namespace ExampleApp;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
-class HelloWorld
+class HelloWorldRoute
 {
     private $foo;
 
     private $response;
 
-    public function __construct(string $foo, ResponseInterface $response)
+    public function __construct(string $api, ResponseInterface $response)
     {
-        $this->foo = $foo;
+        $this->foo = $api;
         $this->response = $response;
     }
 
